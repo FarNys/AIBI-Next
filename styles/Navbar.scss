@@ -1,0 +1,228 @@
+@import "./settings/colors";
+@import "./settings/mixins";
+.navbar_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: $color_text_2;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 100000;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+  // align-items: flex-start;
+  transition: 0.3s ease all;
+}
+.navbar_container_scroll {
+  background-color: $color_1;
+  transition: 0.3s ease all;
+}
+
+.navbar_inner {
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  margin: auto;
+  > h3 {
+    padding: 1rem 2rem;
+  }
+}
+
+.navbar_single_drowdown {
+  //   position: relative;
+  display: flex;
+  > ul {
+    display: flex;
+    > li {
+      list-style: none;
+      padding: 1rem 2rem;
+      &:hover {
+        a {
+          color: $color_2;
+
+          span {
+            // transform: translateX(0%);
+            // left: 0;
+            animation-name: underlineAnimate;
+            animation-duration: 0.7s;
+            animation-fill-mode: forwards;
+            transition-timing-function: ease-in;
+          }
+        }
+      }
+
+      > a {
+        position: relative;
+        color: $color_text;
+        display: flex;
+        padding-bottom: 0.5rem;
+        text-decoration: none;
+        overflow: hidden;
+        pointer-events: none;
+
+        > span {
+          position: absolute;
+          bottom: 0px;
+          left: 0%;
+          width: 100%;
+          height: 3px;
+          transform: translateX(-100%);
+          background-color: $color_2;
+          pointer-events: none;
+
+          //   @include tranSition;
+        }
+      }
+    }
+  }
+}
+
+.navbar_side_content {
+  padding: 1rem 2rem;
+}
+@keyframes underlineAnimate {
+  70% {
+    transform: translateX(30%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+//HOVER EFFECT FOR DYNAMIC CONTENT
+.dynamic_hover {
+  transition: 0.3s ease all !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translate(-50%, 50px) scale(1) !important;
+  .navbar_dynamic_left {
+    > h3 {
+      transition: 0.025s ease all;
+      opacity: 0;
+    }
+    > ul {
+      > li {
+        transition: 0.025s ease all;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@keyframes contentTitle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+//DYNAMIC CONTENT STYLE
+.navbar_dynamic_content {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 1;
+  //   margin: auto;
+  pointer-events: none;
+  transform: translate(-50%, 0) scale(0.96);
+  display: flex;
+  width: 1000px;
+  // height: 100px;
+  border-radius: $border_rad_2;
+  flex-direction: column;
+  transition: none;
+  visibility: hidden;
+
+  .navbar_dynamic_top {
+    height: 50px;
+    background-color: transparent;
+  }
+  .navbar_dynamic_bot {
+    // box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+    background-color: $color_text;
+    display: flex;
+    border-radius: $border_rad_2;
+    overflow: hidden;
+    transition: 0.3s linear height;
+    > div {
+      flex: 1;
+    }
+  }
+  .navbar_dynamic_left {
+    padding: 2rem;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    // transition: 0.2s ease opacity;
+
+    > h3 {
+      color: $color_1;
+      transition: 0.025s ease all;
+      opacity: 1;
+    }
+    > ul {
+      margin-top: 2rem;
+      > li {
+        list-style: none;
+        padding: 0.5rem 0;
+        color: $color_text_2;
+        transition: 0.025s ease all;
+        opacity: 1;
+      }
+    }
+  }
+  .navbar_left_effect {
+    opacity: 0.3;
+    transition: 0.2s ease opacity;
+  }
+  .navbar_dynamic_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color_text_2;
+    .navbar_dynamic_right_inner {
+      padding: 2rem;
+      .navbar_data_img {
+        width: 250px;
+        aspect-ratio: 1.5;
+        display: flex;
+        border-radius: $border_rad_1;
+        overflow: hidden;
+        > img {
+          width: 100%;
+        }
+      }
+      .navbar_data_data {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        > h3 {
+          color: $color_text;
+          margin-top: 1rem;
+          margin-bottom: 2rem;
+        }
+        > a {
+          text-decoration: none;
+          color: $color_4;
+          margin-top: auto;
+          padding-bottom: 2rem;
+          &:hover {
+            color: $color_2;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1020px) {
+  .navbar_container {
+    display: none;
+  }
+}

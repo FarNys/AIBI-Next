@@ -1,0 +1,40 @@
+@import "./settings/colors";
+@import "./settings/mixins";
+.slidercards_container {
+  width: 100%;
+  padding-top: 4rem;
+  border: 3px solid red;
+}
+.slidercards_box_square {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  max-width: 1200px;
+  margin: 5rem auto;
+  background: linear-gradient(180deg, rgb(254, 240, 255), transparent);
+}
+.slidercards_box {
+  margin: 6rem auto;
+  width: 100%;
+}
+.slider_card_slide {
+  display: flex;
+  &:nth-child(even) {
+    > div {
+      margin-right: 1rem;
+    }
+  }
+  &:nth-child(odd) {
+    > div {
+      margin-left: 1rem;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .slider_card_slide {
+    display: flex;
+    > div {
+      margin: 1rem auto !important;
+    }
+  }
+}
