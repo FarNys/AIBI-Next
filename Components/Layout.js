@@ -14,10 +14,12 @@ const Layout = ({ children, title, description, keyword }) => {
         <meta name="keyword" content={keyword} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
-      <NavbarMenu />
-      {children}
-      <Footer />
+      <div className="app_container">
+        <Navbar />
+        <NavbarMenu />
+        {children}
+        <Footer />
+      </div>
     </div>
   );
 };

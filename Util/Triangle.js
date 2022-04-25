@@ -1,5 +1,5 @@
 import React from "react";
-import "./Util.scss";
+// import "./Util.scss";
 
 const Triangle = ({ classTitle = "triangle_right" }) => {
   return (
