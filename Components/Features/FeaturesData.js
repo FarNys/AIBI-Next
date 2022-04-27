@@ -4,9 +4,8 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Fade, Slide } from "react-awesome-reveal";
 
 const FeaturesData = () => {
-  gsap.registerPlugin(ScrollTrigger);
-
   //ADD GSAP SCROLL EFFECT FOR ANIMATING TRIANGLES
+  gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     gsap
       .timeline({
@@ -74,67 +73,68 @@ const FeaturesData = () => {
     const getChildImg = document.querySelector(".features_data_child_img");
     const getContent = document.querySelector(".features_data_inner");
     const footer = document.querySelector(".footer_container");
-    console.log(footer);
-    window.addEventListener("load", () => {
-      console.log("Z-Z--Z-Z-Z-Z-Z-Z-Z-Z-Z-Z-ZZ-Z-Z-Z-Z-Z-Z-");
-      window.addEventListener("scroll", () => {
-        //CURRENT SCROLL POSITION + CURRENT HEIGHT OF DISPLAY (PX)
-        const gridHeight = getContent.offsetTop;
-        const currScroll = window.scrollY;
-        console.log(document.documentElement);
-        const currViewHeight = document.documentElement.clientHeight;
-        const footerHeight = footer.offsetTop;
-        // console.log(footerHeight);
+    const animatedFunc = () => {
+      console.log("TEST TEST TEST TEST");
+      //CURRENT SCROLL POSITION + CURRENT HEIGHT OF DISPLAY (PX)
+      const gridHeight = getContent.offsetTop;
+      const currScroll = window.scrollY;
+      // console.log(document.documentElement);
+      const currViewHeight = document.documentElement.clientHeight;
+      const footerHeight = footer.offsetTop;
+      // console.log(footerHeight);
 
-        //CONDITION TO CHANGE ANIMATION NAME AND IMG SRC
-        if (gridHeight + 600 > currScroll) {
-          getChildImg.style.transformOrigin = "bottom right";
-          getParentImg.style.animation =
-            "img-parent-animate-left 0.5s ease forwards";
-          getChildImg.style.animation =
-            "img-child-animate-left 0.5s ease forwards";
-          getChildImg.src = imgSrc[0];
-        }
-        if (gridHeight + 600 < currScroll) {
-          getChildImg.style.transformOrigin = "bottom center";
-          getParentImg.style.animation =
-            "img-parent-animate-right 0.5s ease forwards";
-          getChildImg.style.animation =
-            "img-child-animate-right 0.5s ease forwards";
-          getChildImg.src = imgSrc[1];
-        }
-        if (
-          gridHeight + 600 * 2 < currScroll &&
-          gridHeight + 600 * 3 > currScroll
-        ) {
-          getChildImg.style.transformOrigin = "bottom right";
-          getParentImg.style.animation =
-            "img-parent-animate-left 0.5s ease forwards";
-          getChildImg.style.animation =
-            "img-child-animate-left 0.5s ease forwards";
-          getChildImg.src = imgSrc[2];
-        }
-        if (
-          gridHeight + 600 * 3 <
-          currScroll
-          // gridHeight + 600 * 4 > currScroll
-        ) {
-          getChildImg.style.transformOrigin = "bottom center";
-          getParentImg.style.animation =
-            "img-parent-animate-right 0.5s ease forwards";
-          getChildImg.style.animation =
-            "img-child-animate-right 0.5s ease forwards";
-          getChildImg.src = imgSrc[3];
-        }
-        if (footerHeight < currScroll + 800) {
-          getTarget.style.visibility = "hidden";
-        } else {
-          getTarget.style.visibility = "visible";
-        }
+      //CONDITION TO CHANGE ANIMATION NAME AND IMG SRC
+      if (gridHeight + 600 > currScroll) {
+        getChildImg.style.transformOrigin = "bottom right";
+        getParentImg.style.animation =
+          "img-parent-animate-left 0.5s ease forwards";
+        getChildImg.style.animation =
+          "img-child-animate-left 0.5s ease forwards";
+        getChildImg.src = imgSrc[0];
+      }
+      if (gridHeight + 600 < currScroll) {
+        getChildImg.style.transformOrigin = "bottom center";
+        getParentImg.style.animation =
+          "img-parent-animate-right 0.5s ease forwards";
+        getChildImg.style.animation =
+          "img-child-animate-right 0.5s ease forwards";
+        getChildImg.src = imgSrc[1];
+      }
+      if (
+        gridHeight + 600 * 2 < currScroll &&
+        gridHeight + 600 * 3 > currScroll
+      ) {
+        getChildImg.style.transformOrigin = "bottom right";
+        getParentImg.style.animation =
+          "img-parent-animate-left 0.5s ease forwards";
+        getChildImg.style.animation =
+          "img-child-animate-left 0.5s ease forwards";
+        getChildImg.src = imgSrc[2];
+      }
+      if (
+        gridHeight + 600 * 3 <
+        currScroll
+        // gridHeight + 600 * 4 > currScroll
+      ) {
+        getChildImg.style.transformOrigin = "bottom center";
+        getParentImg.style.animation =
+          "img-parent-animate-right 0.5s ease forwards";
+        getChildImg.style.animation =
+          "img-child-animate-right 0.5s ease forwards";
+        getChildImg.src = imgSrc[3];
+      }
+      if (footerHeight < currScroll + 800) {
+        getTarget.style.visibility = "hidden";
+      } else {
+        getTarget.style.visibility = "visible";
+      }
 
-        // console.log(gridHeight, currScroll, footerHeight, currViewHeight, footer);
-      });
-    });
+      // console.log(gridHeight, currScroll, footerHeight, currViewHeight, footer);
+    };
+    console.log("Z-Z--Z-Z-Z-Z-Z-Z-Z-Z-Z-Z-ZZ-Z-Z-Z-Z-Z-Z-");
+    window.addEventListener("scroll", () => animatedFunc());
+
+    return () => window.removeEventListener("scroll", animatedFunc);
     //ADD LISTENER TO ADD SCROLL EFFECT
   }, []);
 

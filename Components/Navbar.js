@@ -16,20 +16,16 @@ const Navbar = () => {
     const changeStyle = () => {
       if (window.scrollY > 100) {
         getNav.classList.add("navbar_container_scroll");
-        console.log(window.scrollY);
       } else {
         getNav.classList.remove("navbar_container_scroll");
-        console.log(window.scrollY);
       }
     };
     window.addEventListener("scroll", () => {
       changeStyle();
-      console.log("ADD");
     });
     return () => {
       window.removeEventListener("scroll", () => {
         changeStyle();
-        console.log("REMOVE");
       });
     };
   }, []);
@@ -52,7 +48,6 @@ const Navbar = () => {
         getLists[getIndex].style.visibility = "visible";
       }, 50);
     }
-    console.log("Enter");
     // console.log(getIndex);
   };
 
@@ -71,8 +66,6 @@ const Navbar = () => {
         }, 50);
       });
     }
-    console.log("Leave");
-    console.log(getIndex);
   };
 
   const dynamicData = [
