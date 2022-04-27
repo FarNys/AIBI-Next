@@ -5,57 +5,57 @@ import { Fade, Slide } from "react-awesome-reveal";
 
 const FeaturesData = () => {
   //ADD GSAP SCROLL EFFECT FOR ANIMATING TRIANGLES
-  gsap.registerPlugin(ScrollTrigger);
-  useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".feature_data_shape_1",
-          start: "top center",
-          end: "bottom top",
-          // markers: true,
-          scrub: true,
-          // pan: true,
-        },
-      })
-      .to(".feature_data_shape_1", 3, { y: 500 });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".feature_data_shape_2",
-          start: "top center",
-          end: "bottom top",
-          // markers: true,
-          scrub: true,
-          // pan: true,
-        },
-      })
-      .to(".feature_data_shape_2", 3, { y: -250 });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".feature_data_shape_3",
-          start: "top center",
-          end: "bottom top",
-          // markers: true,
-          scrub: true,
-          // pan: true,
-        },
-      })
-      .to(".feature_data_shape_3", 3, { y: 500 });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".feature_data_shape_4",
-          start: "top center",
-          end: "bottom top",
-          // markers: true,
-          scrub: true,
-          // pan: true,
-        },
-      })
-      .to(".feature_data_shape_4", 3, { y: -250 });
-  }, []);
+  // gsap.registerPlugin(ScrollTrigger);
+  // useEffect(() => {
+  //   gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: ".feature_data_shape_1",
+  //         start: "top center",
+  //         end: "bottom top",
+  //         // markers: true,
+  //         scrub: true,
+  //         // pan: true,
+  //       },
+  //     })
+  //     .to(".feature_data_shape_1", 3, { y: 500 });
+  //   gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: ".feature_data_shape_2",
+  //         start: "top center",
+  //         end: "bottom top",
+  //         // markers: true,
+  //         scrub: true,
+  //         // pan: true,
+  //       },
+  //     })
+  //     .to(".feature_data_shape_2", 3, { y: -250 });
+  //   gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: ".feature_data_shape_3",
+  //         start: "top center",
+  //         end: "bottom top",
+  //         // markers: true,
+  //         scrub: true,
+  //         // pan: true,
+  //       },
+  //     })
+  //     .to(".feature_data_shape_3", 3, { y: 500 });
+  //   gsap
+  //     .timeline({
+  //       scrollTrigger: {
+  //         trigger: ".feature_data_shape_4",
+  //         start: "top center",
+  //         end: "bottom top",
+  //         // markers: true,
+  //         scrub: true,
+  //         // pan: true,
+  //       },
+  //     })
+  //     .to(".feature_data_shape_4", 3, { y: -250 });
+  // }, []);
   //
 
   //ADD ANIMATION EFFECT TO ANIMATE SVG IMAGES
