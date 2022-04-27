@@ -74,7 +74,6 @@ const FeaturesData = () => {
     const getContent = document.querySelector(".features_data_inner");
     const footer = document.querySelector(".footer_container");
     const animatedFunc = () => {
-      console.log("TEST TEST TEST TEST");
       //CURRENT SCROLL POSITION + CURRENT HEIGHT OF DISPLAY (PX)
       const gridHeight = getContent.offsetTop;
       const currScroll = window.scrollY;
@@ -131,7 +130,6 @@ const FeaturesData = () => {
 
       // console.log(gridHeight, currScroll, footerHeight, currViewHeight, footer);
     };
-    console.log("Z-Z--Z-Z-Z-Z-Z-Z-Z-Z-Z-Z-ZZ-Z-Z-Z-Z-Z-Z-");
     window.addEventListener("scroll", () => animatedFunc());
 
     return () => window.removeEventListener("scroll", animatedFunc);
